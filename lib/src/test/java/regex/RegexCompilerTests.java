@@ -52,4 +52,7 @@ public class RegexCompilerTests {
     @Test public void regexToPostFixTest6() throws InvalidRegexOperatorException, InvalidRegexException {
         assertEquals("abb#+#a#",Parser.regexToPostFix(Parser.addConcatenationSymbol("a(bb)+a")));
     }
+    @Test public void regexToPostFixTest7() throws InvalidRegexOperatorException, InvalidRegexException {
+        assertEquals("ab#?cd#?|",Parser.regexToPostFix(Parser.addConcatenationSymbol("(ab)?|(cd)?")));
+    }
 }

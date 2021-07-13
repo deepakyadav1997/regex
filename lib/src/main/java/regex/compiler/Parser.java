@@ -4,6 +4,7 @@ import regex.exceptions.InvalidRegexException;
 import regex.exceptions.InvalidRegexOperatorException;
 
 import java.util.Stack;
+import java.util.regex.Pattern;
 
 public class Parser{
     /*
@@ -56,6 +57,7 @@ public class Parser{
                     break;
                 case '*':
                 case '+':
+                case '?':
                 case '|':
                 case '#':
                     while(!stack.isEmpty() && getOperatorPrecedence(stack.peek()) - getOperatorPrecedence(c) >= 0){
@@ -95,6 +97,7 @@ public class Parser{
         int preference;
         switch (d){
             case '*':
+            case '?':
             case '+':
                 preference =  1000;
                 break;
